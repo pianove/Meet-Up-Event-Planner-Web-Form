@@ -1,0 +1,21 @@
+{
+  "name": "package-json",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "font-awesome": "^4.5.0"
+  },
+   "devDependencies": {},
+  "overrides": {
+      "font-awesome": {
+          "main": [
+              "css/font-awesome.css",
+              "fonts/fontawesome-webfont.eot",
+              "fonts/fontawesome-webfont.woff",
+              "fonts/fontawesome-webfont.ttf",
+              "fonts/fontawesome-webfont.svg"
+          ]
+      }
+  }
+
+}
