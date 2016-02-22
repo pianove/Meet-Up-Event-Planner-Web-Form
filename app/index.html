@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>package json</title>
-
+    <title>My Meet-Up Event Planner</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
@@ -24,15 +24,46 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p><i class="fa fa-phone"></i>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>jQuery</li>
-      </ul>
+    <header>
+      <div class="company-name">Cam's Checkout</div>
+      <div class="progress-bar"></div>
+    </header>
+    <div class="main">
+      <div class="display-section">
+        <h2>Your Account</h2>
+          <div class="flex-container flex-horizontal">
+            <form id="createAccount" name="createAccount" method="post">
+              <p>Hello</p>
+              Do you have an event to organize? Please provide a few information about yourself
+              <div class="form-item">
+                <label for="accountName">Your Name:<span class="required title-color">*</span></label>
+                <input type="text" id="accountName" name="name">
+              </div>
+              <div class="form-item">
+                <label for="accountEmail">Your Email Address: <span class="required title-color">*</span></label>
+                <input type="text" id="accountEmail" name="email" placeholder="name@example.com" value required>
+              </div>
+              <div class="form-item">
+                <label for="accountPassword">Your Password: <span class="required title-color">*</span></label>
+                <input type="text" id="accountPassword" name="password" value required>
+              </div>
+              <div class="password-checklist">
+                <p>To secure your password,it must contain: </p>
+                 <ul>
+                  <li><span class="to-tick"></span> at least one lowercase letter;</li>
+                  <li><span class="to-tick"></span> at least one UPPERCASE letter;</li>
+                  <li><span class="to-tick"></span> at least one number (0-9);</li>
+                  <li><span class="to-tick"></span> at least 5 characters;</li>
+                  <li><span class="to-tick"></span> no more than 8 characters.</li>
+                </ul>
+              </div>
+              <input type="submit" value="Get In Touch" name="submit">
+            </form>
+            <div id="success"></div>
+        </div>
+      </div>
     </div>
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -53,6 +84,11 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-    <script src="scripts/submit.js"></script>
+    <script src="scripts/validation.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.min.js"></script>
   </body>
 </html>
