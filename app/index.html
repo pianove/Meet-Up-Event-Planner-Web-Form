@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-tap-highlight" content="no">
     <title>My Meet-Up Event Planner</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300" rel="stylesheet">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -18,6 +19,17 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script>
+      window.onload = function() {
+        if(/iP(hone|ad)/.test(window.navigator.userAgent)) {
+          var elements = document.querySelectorAll('button');
+          var emptyFunction = function() {};
+          for(var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('touchstart', emptyFunction, false);
+          }
+        }
+      };
+    </script>
 
   </head>
   <body>
@@ -25,39 +37,59 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <header>
-      <div class="company-name">Cam's Checkout</div>
+      <div class="company-name">My Meet-Up Event Planner</div>
       <div class="progress-bar"></div>
     </header>
     <div class="main">
       <div class="display-section">
-        <h2>Your Account</h2>
+        <h1>Introduce Yourself</h1>
           <div class="flex-container flex-horizontal">
             <form id="createAccount" name="createAccount" method="post">
-              <p>Hello</p>
-              Do you have an event to organize? Please provide a few information about yourself
+              <p>
+                To start to organize your event, please provide a few information about yourself</p>
               <div class="form-item">
-                <label for="accountName">Your Name:<span class="required title-color">*</span></label>
-                <input type="text" id="accountName" name="name">
+                <label for="accountName">Your Name:</label>
+                <input type="text" id="accountName" name="name" required placeholder="Enter your name here..." autofocus autocomplete="name">
               </div>
               <div class="form-item">
-                <label for="accountEmail">Your Email Address: <span class="required title-color">*</span></label>
-                <input type="text" id="accountEmail" name="email" placeholder="name@example.com" value required>
+                <label for="accountEmail">Your Email Address: </label>
+                <input type="text" id="accountEmail" name="email" placeholder="name@example.com" required autocomplete="email">
               </div>
               <div class="form-item">
-                <label for="accountPassword">Your Password: <span class="required title-color">*</span></label>
-                <input type="text" id="accountPassword" name="password" value required>
-              </div>
-              <div class="password-checklist">
-                <p>To secure your password,it must contain: </p>
+                <label for="accountPassword">Your Password: </label>
+                <div class="password-checklist">
+                <h4>To secure your password, it must meet the following requirements:
+                </h4>
                  <ul>
-                  <li><span class="to-tick"></span> at least one lowercase letter;</li>
-                  <li><span class="to-tick"></span> at least one UPPERCASE letter;</li>
-                  <li><span class="to-tick"></span> at least one number (0-9);</li>
-                  <li><span class="to-tick"></span> at least 5 characters;</li>
-                  <li><span class="to-tick"></span> no more than 8 characters.</li>
+                  <li id="letter" class="fail">at least <strong>one lowercase letter</strong></li>
+                  <li id="capital" class="fail">at least <strong>one capital letter</strong></li>
+                  <li id="number" class="fail">at least <strong>one number</strong> (0-9)</li>
+                  <li id="minlength" class="fail">be longer than <strong>5 characters</strong></li>
+                  <li id="maxlength" class="fail">but shorter than <strong>15 characters</strong>.</li>
                 </ul>
               </div>
-              <input type="submit" value="Get In Touch" name="submit">
+                <input id="accountPassword" name="password" type="password" class="password" required>
+                <button id="passwordunmask" class="unmask" type="button" title="Show/Hide my password">Unmask</button>
+              </div>
+              <div class="form-item confirm">
+                <label for="confirmPassword">Confirm Your Password: </label>
+                <input id="confirmPassword" name="confirmpassword" type="password" class="password" required placeholder="Type your password again here...">
+                <button id="confirmunmask" class="unmask" type="button" title="Show/Hide my password">Unmask</button>
+              </div>
+              <div class="form-item">
+                <button type="submit" id="createaccount">Create</button>
+              </div>
+              <!--<div class="password-checklist">
+                <h4>To secure your password, it must meet the following requirements:
+                </h4>
+                 <ul>
+                  <li id="letter" class="fail">at least <strong>one lowercase letter</strong></li>
+                  <li id="capital" class="fail">at least <strong>one capital letter</strong></li>
+                  <li id="number" class="fail"></span> at least <strong>one number</strong> (0-9)</li>
+                  <li id="minlength" class="fail">be longer than <strong>5 characters</strong></li>
+                  <li id="maxlength" class="fail">but shorter than <strong>15 characters</strong>.</li>
+                </ul>
+              </div>-->
             </form>
             <div id="success"></div>
         </div>
